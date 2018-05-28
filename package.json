@@ -1,5 +1,5 @@
 {
-  "name": "generator-angular-component",
+  "name": "generator-angular-fullstack-component",
   "version": "1.0.0",
   "description": "Angular component generator",
   "main": "index.js",
