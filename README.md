@@ -1,2 +1,3 @@
-# generator-ng2-component
-Yeoman generators for Angular 2 components
+# generator-angular-fullstack-component
+
+Yeoman generators for Angular components
