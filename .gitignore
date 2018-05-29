@@ -4,5 +4,7 @@ bower_components/
 
 build/
 dist/
-generators
-test
+generators/
+test/
+!src/generators/
+!src/test/

@@ -179,8 +179,6 @@ export class BaseGenerator extends Generator {
 
     this.filters = this.config.get('filters');
     this.extensions = this.config.get('extensions');
-    this.hasFilter = filter => this.filters.indexOf(filter) !== -1;
-    this.hasExtension = ext => this.extensions.indexOf(ext) !== -1;
 
     this.scriptExt = this.hasExtension('ts') ? 'ts' : 'js';
     this.templateExt = this.hasExtension('pug') ? 'pug' : 'html';
@@ -203,6 +201,14 @@ export class BaseGenerator extends Generator {
     this.sourceRoot(path.join(__dirname, '..', '/templates'));
 
     // return yoCheckPromise;
+  }
+
+
+  hasFilter(filter) {
+    return this.filters.indexOf(filter) !== -1;
+  }
+  hasExtension(ext) {
+    return this.extensions.indexOf(ext) !== -1;
   }
 
   /**
