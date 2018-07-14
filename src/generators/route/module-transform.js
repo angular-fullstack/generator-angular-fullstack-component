@@ -24,7 +24,7 @@ export function addModule(sourceText, moduleName, modulePath) {
     const source = jscodeshift.withParser('flow')(sourceText);
 
     const ngModules = source
-        .find(jscodeshift.ClassDeclaration, path => path.decorators.some(decorator => decorator.callee.name === 'NgModule'));
+        .find(jscodeshift.ClassDeclaration, path => path.decorators.some(decorator => decorator.expression.callee.name === 'NgModule'));
 
     if(ngModules.size() === 0) {
         throw new NoModulesError();
@@ -34,8 +34,8 @@ export function addModule(sourceText, moduleName, modulePath) {
     }
 
     const ngModuleClass = ngModules.get();
-    const ngModule = ngModuleClass.value.decorators.find(decorator => decorator.callee.name === 'NgModule');
-    const imports = ngModule.arguments[0].properties.find(prop => prop.key.name === 'imports');
+    const ngModule = ngModuleClass.value.decorators.find(decorator => decorator.expression.callee.name === 'NgModule');
+    const imports = ngModule.expression.arguments[0].properties.find(prop => prop.key.name === 'imports');
 
     if(!imports) {
         console.info('No \'imports\' property? Strange..');
