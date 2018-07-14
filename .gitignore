@@ -8,3 +8,4 @@ generators/
 test/
 !src/generators/
 !src/test/
+.idea/
